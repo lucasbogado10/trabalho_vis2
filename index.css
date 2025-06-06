@@ -1,65 +1,153 @@
+:root {
+    --dark-background: #1a1a1a;
+    --card-background: #2c2c2c;
+    --vibrant-purple: #9c00f5;
+    --light-purple: #b84cff;
+    --text-light: #e0e0e0;
+    --text-dark: #b0b0b0;
+    --border-dark: #444444;
+    --shadow-dark: rgba(0, 0, 0, 0.4);
+    --border-radius: 10px;
+    --padding-base: 1.8rem;
+    --gap-base: 1.5rem;
+}
+
 body {
-    margin: 20px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.25em;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--dark-background);
+    overflow: hidden;
 }
 
-.main-container {
-    height: auto; 
-    margin-bottom: 30px; 
-    padding: 10px; 
+h1,
+h2,
+h3 {
+    font-family: "Open Sans", sans-serif;
+    color: var(--vibrant-purple);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: var(--card-background);
+    padding: var(--padding-base);
+    height: 100vh;
+}
+
+.sidebar h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--vibrant-purple);
+    text-align: center;
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+}
+
+.sidebar ul li {
+    text-align: center;
+    margin-bottom: 0.6rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.chart-button-group {
+    margin-top: 120px;
     display: flex;
-    background-color: #efefef;
     flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
     align-items: center;
-    border-radius: 8px; 
+    gap: 15px;
+    padding-top: var(--padding-base);
+    border-top: 1px solid var(--border-dark);
 }
 
-.buttom-container {
+.main-content {
+    width: 100%;
+    padding: var(--padding-base);
+    background-color: var(--dark-background);
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin-top: 20px; 
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.chart-container {
+    width: 100%;
+    margin-bottom: var(--padding-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-base);
+}
+
+.chart-box {
+    padding: var(--padding-base);
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--border-dark);
 }
 
 svg {
-    margin: 10px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    border: #bfbfbf solid 1px;
-    height: 400px; 
-    width: 800px; 
+    width: 100%;
+    height: 450px;
+    background-color: var(--dark-background);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-dark);
 }
 
 circle {
-    stroke: #006A71;
-    stroke-width: "3";
-    fill: #9ACBD0;
+    stroke: var(--light-purple);
+    stroke-width: 2;
+    fill: var(--vibrant-purple);
 }
 
-rect.bar { 
-    fill: #006A71;
+rect.bar {
+    fill: var(--vibrant-purple);
 }
 
-text.axis-label { 
-    font-size: 0.9em;
-    fill: #333;
+text.axis-label {
+    font-size: 1em;
+    fill: var(--text-dark);
 }
 
 button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
     cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #bfbfbf;
-    background-color: #f0f0f0;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--vibrant-purple);
+    background-color: var(--vibrant-purple);
+    color: var(--text-light);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 220px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 button:hover {
-    background-color: #e0e0e0;
+    background-color: var(--light-purple);
+    border-color: var(--light-purple);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--shadow-dark);
+}
+
+button:active {
+    transform: translateY(0);
+    background-color: var(--vibrant-purple);
 }

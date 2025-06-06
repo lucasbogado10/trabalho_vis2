@@ -1,5 +1,4 @@
-
-import { loadDb } from './config.js'; 
+import { loadDb } from "./config.js";
 
 export class Taxi {
     async init() {
@@ -7,17 +6,16 @@ export class Taxi {
         this.conn = await this.db.connect();
 
         this.color = "green";
-        this.table = 'taxi_2023';
+        this.table = "taxi_2023";
     }
 
     async loadTaxi(months = 6) {
-        if (!this.db || !this.conn)
-            throw new Error('Database not initialized. Please call init() first.');
+        if (!this.db || !this.conn) throw new Error("Database not initialized. Please call init() first.");
 
         const files = [];
 
         for (let id = 1; id <= months; id++) {
-            const sId = String(id).padStart(2, '0')
+            const sId = String(id).padStart(2, "0");
             files.push({ key: `Y2023M${sId}`, url: `parquet/${this.color}_tripdata_2023-${sId}.parquet` });
 
             const res = await fetch(files[files.length - 1].url);
@@ -27,21 +25,19 @@ export class Taxi {
         await this.conn.query(`
             CREATE TABLE ${this.table} AS
                 SELECT * 
-                FROM read_parquet([${files.map(d => d.key).join(",")}]);
+                FROM read_parquet([${files.map((d) => d.key).join(",")}]);
         `);
     }
 
     async query(sql) {
-        if (!this.db || !this.conn)
-            throw new Error('Database not initialized. Please call init() first.');
+        if (!this.db || !this.conn) throw new Error("Database not initialized. Please call init() first.");
 
         let result = await this.conn.query(sql);
-        return result.toArray().map(row => row.toJSON());
+        return result.toArray().map((row) => row.toJSON());
     }
 
     async test(limit = 10) {
-        if (!this.db || !this.conn)
-            throw new Error('Database not initialized. Please call init() first.');
+        if (!this.db || !this.conn) throw new Error("Database not initialized. Please call init() first.");
 
         const sql = `
                 SELECT * 

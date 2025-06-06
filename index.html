@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Visualização de Dados</title>
+        <link rel="stylesheet" href="index.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Carregamento dos Dados</title>
-    <link rel="stylesheet" href="index.css">
-</head>
+    <body>
+        <div style="display: flex">
+            <div class="sidebar">
+                <div class="sidebar-content">
+                    <h1>Visualização de Dados</h1>
+                    <h3>Grupo:</h3>
+                    <ul>
+                        <li>Kelwyn Reis</li>
+                        <li>Lucas Bogado</li>
+                        <li>Matheus Bastos</li>
+                    </ul>
+                    <div class="chart-button-group">
+                        <button id="loadBtn">Carregar Gráficos</button>
+                        <button id="clearBtn">Limpar Gráficos</button>
+                    </div>
+                </div>
+            </div>
 
-<body>
-    <div class="main-container">
-        <h2>Padrão de Corridas: Dias de Semana vs. Fim de Semana</h2>
-        <svg id="weekdayWeekendChart"></svg>
-    </div>
-    <div class="main-container">
-        <h2>Relação entre Gorjeta e Horário das Corridas</h2>
-        <svg id="tipTimeChart"></svg>
-    </div>
+            <main class="main-content">
+                <div class="chart-container">
+                    <div class="chart-box">
+                        <h2>Padrão de Corridas: Dias de Semana vs. Fim de Semana</h2>
+                        <svg id="weekdayWeekendChart"></svg>
+                    </div>
+                    <div class="chart-box">
+                        <h2>Relação entre Gorjeta e Horário das Corridas</h2>
+                        <svg id="tipTimeChart"></svg>
+                    </div>
+                </div>
+            </main>
+        </div>
 
-    <div class="buttom-container">
-        <button id="loadBtn">Load All Charts</button>
-        <button id="clearBtn">Clear All Charts</button>
-    </div>
-
-    <script type="module" src="src/main.js"></script>
-</body>
-
+        <script type="module" src="src/main.js"></script>
+    </body>
 </html>

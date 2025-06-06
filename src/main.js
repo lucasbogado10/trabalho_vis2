@@ -1,22 +1,21 @@
 import { Taxi } from "./taxi.js";
-import {loadWeekdayWeekendChart, loadTipAmountByTimeChart, clearAllCharts} from './plot.js';
-import { loadDb } from './config.js'; 
+import { loadWeekdayWeekendChart, loadTipAmountByTimeChart, clearAllCharts } from "./plot.js";
 
 function callbacks(data) {
-    const loadBtn  = document.querySelector('#loadBtn');
-    const clearBtn = document.querySelector('#clearBtn');
+    const loadBtn = document.querySelector("#loadBtn");
+    const clearBtn = document.querySelector("#clearBtn");
 
     if (!loadBtn || !clearBtn) {
         return;
     }
 
-    loadBtn.addEventListener('click', async () => {
-        clearAllCharts(); 
+    loadBtn.addEventListener("click", async () => {
+        clearAllCharts();
         await loadWeekdayWeekendChart(data);
         await loadTipAmountByTimeChart(data);
     });
 
-    clearBtn.addEventListener('click', async () => {
+    clearBtn.addEventListener("click", async () => {
         clearAllCharts();
     });
 }
