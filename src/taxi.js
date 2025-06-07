@@ -35,16 +35,4 @@ export class Taxi {
         let result = await this.conn.query(sql);
         return result.toArray().map((row) => row.toJSON());
     }
-
-    async test(limit = 10) {
-        if (!this.db || !this.conn) throw new Error("Database not initialized. Please call init() first.");
-
-        const sql = `
-                SELECT * 
-                FROM ${this.table}
-                LIMIT ${limit}
-            `;
-
-        return await this.query(sql);
-    }
 }

@@ -8,28 +8,40 @@
     </head>
 
     <body>
-        <div style="display: flex">
-            <div class="sidebar">
-                <div class="sidebar-content">
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
                     <h1>Visualização de Dados</h1>
-                    <h3>Grupo:</h3>
-                    <ul>
-                        <li>Kelwyn Reis</li>
-                        <li>Lucas Bogado</li>
-                        <li>Matheus Bastos</li>
-                    </ul>
-                    <div class="chart-button-group">
-                        <button id="loadBtn">Carregar Gráficos</button>
-                        <button id="clearBtn">Limpar Gráficos</button>
+                    <div class="group-info">
+                        <h3>Grupo:</h3>
+                        <ul>
+                            <li>Kelwyn Reis</li>
+                            <li>/</li>
+                            <li>Lucas Bogado</li>
+                            <li>/</li>
+                            <li>Matheus Bastos</li>
+                        </ul>
                     </div>
                 </div>
+                <div class="chart-button-group">
+                    <button id="loadBtn">Carregar Gráficos</button>
+                    <button id="clearBtn">Limpar Gráficos</button>
+                </div>
             </div>
+        </header>
 
+        <div class="base-layout">
             <main class="main-content">
                 <div class="chart-container">
-                    <div class="chart-box">
-                        <h2>Padrão de Corridas: Dias de Semana vs. Fim de Semana</h2>
-                        <svg id="weekdayWeekendChart"></svg>
+                    <div class="chart-group">
+                        <div class="chart-box">
+                            <h2>Número de Corridas por Dia da Semana</h2>
+                            <svg id="dailyRideCountChart"></svg>
+                        </div>
+                        <div class="chart-box">
+                            <h2>Padrão de Corridas: Dias de Semana vs. Fim de Semana</h2>
+                            <svg id="weekdayWeekendChart"></svg>
+                        </div>
                     </div>
                     <div class="chart-box">
                         <h2>Relação entre Gorjeta e Horário das Corridas</h2>

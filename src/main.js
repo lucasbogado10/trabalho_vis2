@@ -1,5 +1,5 @@
 import { Taxi } from "./taxi.js";
-import { loadWeekdayWeekendChart, loadTipAmountByTimeChart, clearAllCharts } from "./plot.js";
+import { loadDailyRideCountChart, loadTipAmountByTimeChart, clearAllCharts, loadWeekdayWeekendChart } from "./plot.js";
 
 function callbacks(data) {
     const loadBtn = document.querySelector("#loadBtn");
@@ -11,8 +11,9 @@ function callbacks(data) {
 
     loadBtn.addEventListener("click", async () => {
         clearAllCharts();
-        await loadWeekdayWeekendChart(data);
+        await loadDailyRideCountChart(data);
         await loadTipAmountByTimeChart(data);
+        await loadWeekdayWeekendChart(data);
     });
 
     clearBtn.addEventListener("click", async () => {
@@ -37,10 +38,8 @@ window.onload = async () => {
             CAST(strftime(lpep_pickup_datetime, '%H') AS INTEGER) AS pickup_hour
         FROM
             taxi_2023
-        LIMIT ${5000} -- Increased limit for more data
-    `;
+            `;
 
     const data = await taxi.query(sql);
-    console.log(data);
     callbacks(data);
 };
