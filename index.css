@@ -113,11 +113,12 @@ ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    max-width: 100%;
     margin-bottom: 30px;
 }
 
 .chart-box {
-    min-width: 920px;
+    min-width: 700px;
     padding: var(--padding-base);
     background-color: var(--card-background);
     border-radius: var(--border-radius);
